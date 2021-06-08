@@ -12,13 +12,12 @@ while (( n > 0 )); do
     if (( $(($n % 3)) == 0 )); then
         printf "fizz"
         let sum=sum+n
-    fi;
-    if (( $n % 5 == 0 )); then
+    elif (( $n % 5 == 0 )); then
         let sum=sum+n
         printf "buzz"
-    fi;
+    fi
     let n=n-1
-    printf '%s\n' "$(($n+1))"
+    #printf '%s\n' "$(($n+1))"
 done
 
 echo "fizzbuzz triangle of $fbtri is $sum"
