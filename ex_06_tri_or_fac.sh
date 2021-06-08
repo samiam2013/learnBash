@@ -7,12 +7,26 @@
 read -p "Factorialize(1) or Triangulate(2): " option
 read -p "What input number?: " n
 sum=0
-if [[ $option -eq '1' ]]; then 
+ni=$(($n))
+if [ "$option" -eq 1 ]; then 
     echo "factorialize $n... "
-elif [[ $option -eq '2' ]]; then 
+    let sum=1
+    while (( $ni > 1 )); do
+        echo "factor $ni"
+        let sum=sum*ni
+        let ni=ni-1
+    done
+elif [ "$option" -eq 2 ]; then 
     echo "triangulate $n..."
+    while (( $ni > 1 )); do
+        let sum=sum+ni
+        let ni=ni-1
+    done
+else 
+    echo "invalid input."
+    exit
 fi
 
-echo "sum: $sum"
+echo "result: $sum"
 
 exit;
