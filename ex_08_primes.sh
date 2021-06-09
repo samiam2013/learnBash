@@ -5,6 +5,8 @@
 #   primes up to the largest number you can easily 
 #   represent is fine too.)
 
+# this ISN'T working. 
+
 candidate=5
 while true; do 
     let i=2

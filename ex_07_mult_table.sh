@@ -11,7 +11,7 @@ while (( $x < 13 )); do
         printf '%4s' "$product"
         let y=y+1
     done
-    let y=1
+    y=1
     let x=x+1
     printf "\n"
 done 
