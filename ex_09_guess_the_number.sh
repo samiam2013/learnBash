@@ -6,8 +6,6 @@
 #   be printed. It counts only as one try if they input 
 #   the same number multiple times consecutively.
 
-# this ISN'T working
-
 echo "Let's play guess the number!"
 echo ">narrator: *quietly* this time we use a hammer for wrench"
 
@@ -18,19 +16,20 @@ while true; do
     let int_in=$(($input))
     
     # check if the guess has been made`
-    if (( $guesses[$int_in] > 0 )); then
-        let guesses[$int_in]=$int_in
-    else 
+    # echo "guess val: ${guesses[@]}"
+    if [[ " ${guesses[@]} " =~ " $int_in " ]]; then
         echo "you already guessed that !"
         continue
+    else 
+        guesses+=("$int_in")
     fi
     
-    if [ $int_in == $target ]; then
+    if (( $int_in == $target )); then
         echo "nice !"
         exit; # who's the real winner? 
-    elif [ $int_in > $target ]; then 
+    elif (( $int_in > $target )); then 
         echo "lower!"
-    elif [ $int_in < $target ]; then
+    elif (( $int_in < $target )); then
         echo "higher!"
     fi
 
