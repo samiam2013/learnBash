@@ -1,15 +1,15 @@
 #!/bin/bash
-#  Write a function that returns the elements on odd positions in a list.
+#  Write a function that computes the running total of a list.
 
-list=(zero1 odd1 even1 odd2 even2 odd3 even3)
-
-odd_elems () {
-	for ((i=0; i<${#list[@]};i++)); do
-		#echo $i ${list[$i]};
-		if [ $(($i % 2)) -eq 1 ]; then
-			echo ${list[$i]};
-		fi
+running_total () {
+	sum=0
+	for x in $@; do
+		#echo $x; 
+		sum=$(($sum + $x))
+		echo $sum;
 	done;
 }
 
-odd_elems "$list[@]"
+numbers=(1 2 3 4 5 6 7 8 9 10)
+
+running_total "${numbers[@]}"
